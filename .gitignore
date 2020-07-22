@@ -3,6 +3,7 @@
 ################################################################################
 
 /.vs
-/UVSim/.vs/UVSim/v16/ipch/AutoPCH/4a29717f26086e42/WORD.ipch
+/UVSim/.vs/
 *.ipch
 *.opendb
+/UVSim/Debug
