@@ -3,7 +3,9 @@
 ################################################################################
 
 /.vs
-/UVSim/.vs/
+UVSim/.vs
+UVSim/UVSim/.vs
 *.ipch
 *.opendb
-/UVSim/Debug
+UVSim/UVSim/Debug
+UVSim/Debug
