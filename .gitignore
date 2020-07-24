@@ -9,3 +9,5 @@ UVSim/UVSim/.vs
 *.opendb
 UVSim/UVSim/Debug
 UVSim/Debug
+*.sqlite
+*.suo
