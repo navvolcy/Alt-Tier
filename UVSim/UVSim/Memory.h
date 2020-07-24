@@ -7,12 +7,14 @@
 
 class Memory {
 private:
-	const int MEM_SIZE = 100;
+	
 	// This is the raw memory
 	std::vector<Word> mem;
 public:
+	const int MEM_SIZE;
+
 	// Constructor - this sets up the memory vector
-	Memory();
+	Memory(int memSize);
 
 	// Write word to location in memory. Includes bounds checking
 	void write(Word word, int location);

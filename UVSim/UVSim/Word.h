@@ -2,6 +2,7 @@
 #define UVSIM_WORD
 
 #include <string>
+#include <stdexcept>
 
 class Word {
 private:
@@ -18,6 +19,7 @@ public:
 	// Constructors - this style forces bad input to be handled by class creating the words,
 	// rather than the actual words themselves
 	Word(char sign, char c1, char c2, char c3, char c4);
+	Word(int x);
 	Word() = default;
 };
 

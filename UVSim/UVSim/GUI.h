@@ -7,12 +7,12 @@
 class GUI
 {
 public: 
-	GUI(Memory drive, ALU calc);
+	GUI(Memory* drive, ALU* calc);
 
 	void launch();
 private:
 
-	Memory drive;
-	ALU calc;
+	Memory* drive;
+	ALU* calc;
 
 };

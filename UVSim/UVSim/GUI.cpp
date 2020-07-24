@@ -1,7 +1,7 @@
 #include "GUI.h"
 #include <iostream>
 
-GUI::GUI(Memory drive, ALU calc) {
+GUI::GUI(Memory* drive, ALU* calc) {
 
 	this->drive = drive;
 	this->calc = calc;
@@ -24,7 +24,7 @@ void GUI::launch() {
 		}
 		else {
 			Word language = Word(user_input.at(0), user_input.at(1), user_input.at(2), user_input.at(3), user_input.at(4));
-			drive.write(language, counter);
+			drive->write(language, counter);
 			counter++;
 
 		}

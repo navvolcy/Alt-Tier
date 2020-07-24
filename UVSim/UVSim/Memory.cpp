@@ -22,7 +22,7 @@ std::vector<Word> Memory::DumpMemory() {
 	return mem;
 }
 
-// Constructor
-Memory::Memory() {
+// Constructor - uses initializer list to set const variable
+Memory::Memory(int memSize) : MEM_SIZE(memSize) {
 	mem = std::vector<Word>(MEM_SIZE);
 }

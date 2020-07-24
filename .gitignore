@@ -12,3 +12,10 @@ UVSim/Debug
 *.sqlite
 *.suo
 *.db
+*.tlog
+*.obj
+*.log
+*.idb
+*.pdb
+*.exe
+*.ilk
