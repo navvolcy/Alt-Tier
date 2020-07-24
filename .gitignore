@@ -11,3 +11,4 @@ UVSim/UVSim/Debug
 UVSim/Debug
 *.sqlite
 *.suo
+*.db
