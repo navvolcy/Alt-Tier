@@ -11,7 +11,10 @@ std::string Word::asInstruction() {
 int Word::asInteger() {
 	std::string s;
 	for (int i = 0; i < 5; i++) {
-		s.push_back(rawWord[i]);
+		if (rawWord[i] == NULL)
+			s.push_back('0');
+		else
+			s.push_back(rawWord[i]);
 	}
 	return std::stoi(s);
 }

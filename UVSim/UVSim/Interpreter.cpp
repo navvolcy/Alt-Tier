@@ -11,6 +11,41 @@ Interpreter::Interpreter(Memory* mem, ALU* alu) {
 	accumulator = Word('+', '0', '0', '0', '0');
 }
 
+void Interpreter::MemDump() {
+	// Dumps out the current contents of memory
+	std::cout << "REGISTERS: " << std::endl;
+	std::cout << "Accumulator: " << "\t\t" << std::setfill('0') << std::setw(5) << accumulator.asInteger() << std::endl;
+	std::cout << "InstructionCounter: " << "\t" << std::setfill('0') << std::setw(2) << pc << std::endl;
+	std::cout << "InstructionRegister: " << "\t" << std::setfill('0') << std::setw(5) << ir.asInteger() << std::endl;
+	std::cout << "Operation Code: " << "\t" << ir.getOpCode() << std::endl;
+	std::cout << "Operand: " << "\t\t" << ir.asInstruction().substr(2, 4) << std::endl;
+	std::cout << std::endl;
+	std::cout << "MEMORY:" << std::endl;
+	// Print Headers
+	std::cout << "\t";
+	int col = 0;
+	for (int i = 0; i < 10; i++) {	
+		std::cout << std::setfill('0') << std::setw(2) << col << "\t";
+		col += 1;
+	}
+	std::cout << std::endl;
+	int row = 0;
+	std::vector<Word> memArr = mem->DumpMemory();
+	for (int j = 0; j < 10; j++) {
+		std::cout << std::setfill('0') << std::setw(2) << row << "\t";
+		
+		for (int k = 0; k < 10; k++) {
+			if (memArr.at(row + k).asInteger() < 0) {
+				std::cout << '1' << std::setfill('0') << std::setw(4) << std::abs(memArr.at(row + k).asInteger()) << "\t";
+			}
+			else
+				std::cout << std::setfill('0') << std::setw(5) << memArr.at(row + k).asInteger() << "\t";
+		}
+		row += 10;
+		std::cout << std::endl;
+	}
+}
+
 void Interpreter::run() {
 	std::string opCode;
 	std::string operand;

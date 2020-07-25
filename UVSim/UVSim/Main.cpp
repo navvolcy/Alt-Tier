@@ -24,9 +24,9 @@ int main(int argc, char* args[]) {
 	ALU* alu = new ALU();
 	GUI* gui = new GUI(mem, alu);
 	Interpreter inter = Interpreter(mem, alu);
-
 	// Start GUI
 	gui->launch();
 	// Begin Computing
 	inter.run();
+	inter.MemDump();
 }

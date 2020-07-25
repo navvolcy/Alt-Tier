@@ -7,6 +7,8 @@
 
 #include <stdexcept>
 #include <iostream>
+#include <iomanip>
+#include <cstdlib>
 
 class Interpreter {
 private:
@@ -30,14 +32,14 @@ private:
 	void OpBranchNeg(int memLoc);
 	void OpBranchZero(int memLoc);
 	void OpHalt();
-	/* These instructions don't have an OpCode
-	void OpMemDump();
-	void OpBreak();
-	void OpContinue();
-	*/
 public:
 	Interpreter(Memory* mem, ALU* alu);
 	void run();
+	void MemDump();
+	/* Not sure how I want to implement these DEBUG functions
+	void Break();
+	void Continue();
+	*/
 };
 
 #endif
