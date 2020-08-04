@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+UVSim/.vs
+UVSim/UVSim/.vs
+*.ipch
+*.opendb
+UVSim/UVSim/Debug
+UVSim/Debug
+*.sqlite
+*.suo
+*.db
+*.tlog
+*.obj
+*.log
+*.idb
+*.pdb
+*.exe
+*.ilk
