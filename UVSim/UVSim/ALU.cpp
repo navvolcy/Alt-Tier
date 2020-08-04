@@ -54,3 +54,25 @@ int ALU::Divide(int dividend, int divisor)
     return ALU::Multiply(sign, quotient);
 }
 
+int ALU::Exponent(int base, int exponent)
+{
+    if (exponent == 0)
+        return 1;
+    else
+        return Multiply(base, Exponent(base, Subtract(exponent, 1)));
+}
+
+int ALU::Remainder(int dividend, int divisor)
+{
+    int sign = dividend >= 0 ? 1 : -1;
+    dividend = dividend < 0 ? dividend * -1 : dividend;
+    divisor = divisor < 0 ? divisor * -1 : divisor;
+    int extra = dividend;
+    while (extra > 0)
+        extra = Subtract(extra, divisor);
+    if (extra == 0)
+        return 0;
+    else
+        return Multiply(Add(divisor, extra), sign);
+}
+
