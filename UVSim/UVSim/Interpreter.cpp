@@ -1,9 +1,8 @@
 #include "Interpreter.h"
 
-Interpreter::Interpreter(Memory* mem, ALU* alu) {
+Interpreter::Interpreter(Memory* mem) {
 	// Register other modules
 	this->mem = mem;
-	this->alu = alu;
 	// Initialize variables
 	pc = 0;
 	running = false; // Doesn't run until run() is called
@@ -134,7 +133,7 @@ void Interpreter::OpAdd(int memLoc) {
 	// (Leave the result in the accumulator)
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = alu->Add(a, b);
+	int c = ALU::Add(a, b);
 	try {
 		accumulator = Word(c);
 	}
@@ -149,7 +148,7 @@ void Interpreter::OpSub(int memLoc) {
 	// Subtract a word from a specific location in memory to the word in the accumulator
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = alu->Subtract(b, a);
+	int c = ALU::Subtract(b, a);
 	try {
 		accumulator = Word(c);
 	}
@@ -164,7 +163,7 @@ void Interpreter::OpDiv(int memLoc) {
 	// Divide a word from a specific location in memory to the word in the accumulator
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = alu->Divide(b, a);
+	int c = ALU::Divide(b, a);
 	try {
 		accumulator = Word(c);
 	}
@@ -179,7 +178,7 @@ void Interpreter::OpMul(int memLoc) {
 	// Multiply a word from a specific location in memory to the word in the accumulator
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = alu->Multiply(a, b);
+	int c = ALU::Multiply(a, b);
 	try {
 		accumulator = Word(c);
 	}

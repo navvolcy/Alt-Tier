@@ -1,15 +1,11 @@
-#include "GUI.h"
+#include "CLI.h"
 #include <iostream>
 
-GUI::GUI(Memory* drive, ALU* calc) {
-
+CLI::CLI(Memory* drive) {
 	this->drive = drive;
-	this->calc = calc;
-
-
 }
 
-void GUI::launch() {
+void CLI::launch() {
 // once everythig is loaded then launch will run the program 
 
 	int counter = 0;

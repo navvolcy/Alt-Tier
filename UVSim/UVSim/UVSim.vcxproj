@@ -139,16 +139,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ALU.h" />
-    <ClInclude Include="GUI.h" />
+    <ClInclude Include="CLI.h" />
+    <ClInclude Include="ICLI.h" />
+    <ClInclude Include="IInterpreter.h" />
+    <ClInclude Include="IMemory.h" />
     <ClInclude Include="Interpreter.h" />
+    <ClInclude Include="IWord.h" />
     <ClInclude Include="Memory.h" />
     <ClInclude Include="nBitAdder.h" />
     <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ALU.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="nBitAdder.cpp" />
     <ClCompile Include="GUI.cpp" />
+=======
+    <ClCompile Include="CLI.cpp" />
+>>>>>>> 3b13fb90cf74ff5ba3f3b5765a20752275c922d0
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Memory.cpp" />
