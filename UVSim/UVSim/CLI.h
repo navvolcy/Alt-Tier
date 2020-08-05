@@ -6,9 +6,12 @@
 
 class CLI: public ICLI
 {
-public: 
-	CLI(Memory* drive);
-	void launch();
 private:
+	CLI(Memory* drive);
 	Memory* drive;
+	static CLI* cliInst;
+public: 
+	static CLI* getInstance(Memory* drive);
+	void launch();
+
 };

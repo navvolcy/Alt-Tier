@@ -1,5 +1,7 @@
 #include "Interpreter.h"
 
+Interpreter* Interpreter::intInst = NULL;
+
 Interpreter::Interpreter(Memory* mem) {
 	// Register other modules
 	this->mem = mem;
@@ -8,6 +10,14 @@ Interpreter::Interpreter(Memory* mem) {
 	running = false; // Doesn't run until run() is called
 	// set the accumulator to zero
 	accumulator = Word('+', '0', '0', '0', '0');
+}
+
+Interpreter* Interpreter::getInstance(Memory* mem) {
+	if (Interpreter::intInst == NULL) {
+		Interpreter::intInst = new Interpreter(mem);
+		return Interpreter::intInst;
+	}
+	return Interpreter::intInst;
 }
 
 void Interpreter::MemDump() {

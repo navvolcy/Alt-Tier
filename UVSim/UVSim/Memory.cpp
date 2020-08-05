@@ -30,7 +30,7 @@ Memory::Memory(int memSize) : MEM_SIZE(memSize) {
 }
 
 Memory* Memory::getInstance(int memSize) {
-	if (!Memory::memInst == NULL) {
+	if (Memory::memInst == NULL) {
 		Memory::memInst = new Memory(memSize);
 		return Memory::memInst;
 	}

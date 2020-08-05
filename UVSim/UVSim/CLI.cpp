@@ -1,8 +1,18 @@
 #include "CLI.h"
 #include <iostream>
 
+CLI* CLI::cliInst = NULL;
+
 CLI::CLI(Memory* drive) {
 	this->drive = drive;
+}
+
+CLI* CLI::getInstance(Memory* drive) {
+	if (CLI::cliInst == NULL) {
+		CLI::cliInst = new CLI(drive);
+		return CLI::cliInst;
+	}
+	return CLI::cliInst;
 }
 
 void CLI::launch() {

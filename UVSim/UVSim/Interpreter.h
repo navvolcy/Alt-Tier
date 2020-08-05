@@ -16,8 +16,10 @@ private:
 	Word ir;
 	Word accumulator;
 	Memory* mem;
-	ALU* alu;
 	bool running;
+
+	static Interpreter* intInst;
+	Interpreter(Memory* mem);
 
 	// Operations
 	void OpRead(int memLoc);
@@ -33,13 +35,17 @@ private:
 	void OpBranchZero(int memLoc);
 	void OpHalt();
 public:
-	Interpreter(Memory* mem);
+	
 	void run();
 	void MemDump();
 	/* Not sure how I want to implement these DEBUG functions
 	void Break();
 	void Continue();
 	*/
+	static Interpreter* getInstance(Memory* mem);
+	
+	// Destructor
+	~Interpreter();
 };
 
 #endif

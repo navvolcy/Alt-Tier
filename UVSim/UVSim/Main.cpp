@@ -13,13 +13,13 @@ int main(int argc, char* args[]) {
 	// Prototype running order
 	// Initialize modules
 	Memory* mem = Memory::getInstance(MEM_SIZE);
-	CLI* cli = new CLI(mem);
-	Interpreter inter = Interpreter(mem);
+	CLI* cli = CLI::getInstance(mem);
+	Interpreter* inter = Interpreter::getInstance(mem);
 	// Start CLI
 	cli->launch();
 	// Begin Computing
-	inter.run();
-	inter.MemDump();
+	inter->run();
+	inter->MemDump();
 
 	delete cli;
 	delete mem;
