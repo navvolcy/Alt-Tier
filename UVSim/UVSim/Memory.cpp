@@ -1,7 +1,5 @@
 #include "Memory.h"
 
-Memory* Memory::memInst = NULL;
-
 void Memory::write(Word word, int location) {
 	// Writes word to location in memory. Includes bounds checking.
 	if (location >= 100 || location < 0) {
@@ -27,16 +25,4 @@ std::vector<Word> Memory::DumpMemory() {
 // Constructor - uses initializer list to set const variable
 Memory::Memory(int memSize) : MEM_SIZE(memSize) {
 	mem = std::vector<Word>(MEM_SIZE);
-}
-
-Memory* Memory::getInstance(int memSize) {
-	if (!Memory::memInst == NULL) {
-		Memory::memInst = new Memory(memSize);
-		return Memory::memInst;
-	}
-	return Memory::memInst;
-}
-
-Memory::~Memory() {
-	// Can be empty
 }

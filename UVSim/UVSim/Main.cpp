@@ -1,5 +1,6 @@
 
-#include "CLI.h"
+#include "GUI.h"
+#include "ALU.h"
 #include "Memory.h"
 #include "Interpreter.h"
 #include <climits>
@@ -7,20 +8,28 @@
 
 int main(int argc, char* args[]) {
 
+	//ALU FUNCTIONALITY TESTING
+	std::cout << ALU::Add(2, 2) << std::endl;
+	std::cout << ALU::Subtract(2, 12) << std::endl;
+	std::cout << ALU::Multiply(2, 2) << std::endl;
+	std::cout << ALU::Divide(20, 2) << std::endl;
+
 	// This value controls the size of memory
-	const int MEM_SIZE = 1000;
+	const int MEM_SIZE = 100;
 
 	// Prototype running order
 	// Initialize modules
-	Memory* mem = Memory::getInstance(MEM_SIZE);
-	CLI* cli = new CLI(mem);
-	Interpreter inter = Interpreter(mem);
-	// Start CLI
-	cli->launch();
+	Memory* mem = new Memory(MEM_SIZE);
+	ALU* alu = new ALU();
+	std::cout << alu->Add(1, 1) << std::endl;
+	GUI* gui = new GUI(mem, alu);
+	Interpreter inter = Interpreter(mem, alu);
+	// Start GUI
+	gui->launch();
 	// Begin Computing
 	inter.run();
 	inter.MemDump();
-
-	delete cli;
+	delete alu;
+	delete gui;
 	delete mem;
 }

@@ -1,14 +1,18 @@
 #pragma once
 #include"Word.h"
+#include"ALU.h"
 #include"Memory.h"
-#include "ICLI.h"
 // include the interpreter Module.h
 
-class CLI: public ICLI
+class GUI
 {
 public: 
-	CLI(Memory* drive);
+	GUI(Memory* drive, ALU* calc);
+
 	void launch();
 private:
+
 	Memory* drive;
+	ALU* calc;
+
 };
