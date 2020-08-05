@@ -19,3 +19,5 @@ UVSim/Debug
 *.pdb
 *.exe
 *.ilk
+UVSim/UVSim/x64
+UVSim/UVSim/UVSim.vcxproj.user
