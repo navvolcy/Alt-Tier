@@ -1,5 +1,7 @@
 #pragma once
-class ALU
+#include "nBitAdder.h"
+
+class ALU 
 {
 public:
     static int Add(int a, int b);
