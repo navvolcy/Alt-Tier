@@ -4,7 +4,9 @@
 #include <string>
 #include <stdexcept>
 
-class Word {
+#include "IWord.h"
+
+class Word: public IWord {
 private:
 	// Word will be stored as a char[] of size 5, Sign bit, plus 4 digits
 	// Sign bit is significant for storing integers, does not affect instructions
