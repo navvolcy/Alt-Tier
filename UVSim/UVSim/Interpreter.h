@@ -4,13 +4,13 @@
 #include "Word.h"
 #include "Memory.h"
 #include "ALU.h"
-
+#include "IInterpreter.h"
 #include <stdexcept>
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
 
-class Interpreter {
+class Interpreter: public IInterpreter {
 private:
 	int pc;
 	Word ir;
@@ -33,7 +33,7 @@ private:
 	void OpBranchZero(int memLoc);
 	void OpHalt();
 public:
-	Interpreter(Memory* mem, ALU* alu);
+	Interpreter(Memory* mem);
 	void run();
 	void MemDump();
 	/* Not sure how I want to implement these DEBUG functions

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef UVSIM_ALU
+#define UVSIM_ALU
+
 class ALU
 {
 public:
@@ -10,3 +12,4 @@ public:
     static int Remainder(int dividend, int divisor);
 };
 
+#endif
