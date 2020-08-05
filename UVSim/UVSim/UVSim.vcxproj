@@ -142,10 +142,12 @@
     <ClInclude Include="GUI.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="Memory.h" />
+    <ClInclude Include="nBitAdder.h" />
     <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ALU.cpp" />
+    <ClCompile Include="nBitAdder.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="Interpreter.cpp" />
     <ClCompile Include="Main.cpp" />
