@@ -27,16 +27,20 @@ ALU* ALU::getInstance(nBitAdder* nba)
 
 int ALU::Add(int a, int b)
 {
+    if (a < 0 || b < 0)
+    {
+        int carry = a & b;
+        a = a ^ b;
+        carry <<= 1;
+        b = carry;
+        return aluInstance->Add(a, b);
+    }
     if (b == 0)
     {
         return a;
     }
     else
     {
-        //int carry = a & b;
-        //a = a ^ b;
-       // carry <<= 1;
-       // b = carry;
         return nba->nBitAdd(a, b);
     }
 }
