@@ -1,4 +1,5 @@
-#pragma once
+#ifndef UVSIM_CLI
+#define UVSIM_CLI
 #include"Word.h"
 #include"Memory.h"
 #include "ICLI.h"
@@ -16,3 +17,5 @@ public:
 	void launch();
 
 };
+
+#endif
