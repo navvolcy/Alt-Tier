@@ -1,8 +1,25 @@
 #include "nBitAdder.h"
 #include <bitset>
 
+nBitAdder* nBitAdder::nbaInstance;
+
 nBitAdder::nBitAdder()
 {
+}
+
+nBitAdder::~nBitAdder()
+{
+	delete nbaInstance;
+}
+
+nBitAdder* nBitAdder::getInstance()
+{
+	if (nBitAdder::nbaInstance == NULL)
+	{
+		nBitAdder::nbaInstance = new nBitAdder();
+		return nBitAdder::nbaInstance;
+	}
+	return nBitAdder::nbaInstance;
 }
 
 nBitAdder::bit nBitAdder::HalfAdder(bit a, bit b)

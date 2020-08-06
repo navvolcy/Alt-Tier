@@ -140,9 +140,11 @@
   <ItemGroup>
     <ClInclude Include="ALU.h" />
     <ClInclude Include="CLI.h" />
+    <ClInclude Include="IALU.h" />
     <ClInclude Include="ICLI.h" />
     <ClInclude Include="IInterpreter.h" />
     <ClInclude Include="IMemory.h" />
+    <ClInclude Include="InBitAdder.h" />
     <ClInclude Include="Interpreter.h" />
     <ClInclude Include="IWord.h" />
     <ClInclude Include="Memory.h" />

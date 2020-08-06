@@ -7,6 +7,11 @@ CLI::CLI(Memory* drive) {
 	this->drive = drive;
 }
 
+CLI::~CLI()
+{
+	delete cliInst;
+}
+
 CLI* CLI::getInstance(Memory* drive) {
 	if (CLI::cliInst == NULL) {
 		CLI::cliInst = new CLI(drive);

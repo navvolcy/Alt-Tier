@@ -1,13 +1,23 @@
-#pragma once
+#ifndef UVSIM_ALU
+#define UVSIM_ALU
+#include "IALU.h"
+#include "nBitAdder.h"
 
-class ALU 
+class ALU : public IALU
 {
+private: 
+    nBitAdder* nba;
+    static ALU* aluInstance;
 public:
+    ALU(nBitAdder* nba);
+    ~ALU();
+    static ALU* getInstance(nBitAdder* nba);
     int Add(int a, int b);
-    static int Subtract(int minuend, int subtrahend);
-    static int Multiply(int a, int b);
-    static int Divide(int dividend, int divisor);
-    static int Exponent(int base, int exponent);
-    static int Remainder(int dividend, int divisor);
+    int Subtract(int minuend, int subtrahend);
+    int Multiply(int a, int b);
+    int Divide(int dividend, int divisor);
+    int Exponent(int base, int exponent);
+    int Remainder(int dividend, int divisor);
 };
 
+#endif

@@ -38,5 +38,5 @@ Memory* Memory::getInstance(int memSize) {
 }
 
 Memory::~Memory() {
-	// Can be empty
+	delete memInst;
 }

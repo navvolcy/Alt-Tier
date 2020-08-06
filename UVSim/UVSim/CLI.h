@@ -8,6 +8,7 @@ class CLI: public ICLI
 {
 private:
 	CLI(Memory* drive);
+	~CLI();
 	Memory* drive;
 	static CLI* cliInst;
 public: 

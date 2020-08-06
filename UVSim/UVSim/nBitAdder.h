@@ -1,12 +1,19 @@
-#pragma once
-static class nBitAdder
+#ifndef UVSIM_NBITADDER
+#define UVSIM_NBITADDER
+
+#include "InBitAdder.h"
+class nBitAdder: public InBitAdder
 {
-	typedef unsigned char bit;
+private:
 	bit carry = 0;
+	static nBitAdder* nbaInstance;
 public:
 	nBitAdder();
+	~nBitAdder();
+	static nBitAdder* getInstance();
 	bit HalfAdder(bit a, bit b);
 	bit FullAdder(bit a, bit b);
 	int nBitAdd(int a, int b);
 };
 
+#endif

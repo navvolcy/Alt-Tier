@@ -2,9 +2,10 @@
 
 Interpreter* Interpreter::intInst = NULL;
 
-Interpreter::Interpreter(Memory* mem) {
+Interpreter::Interpreter(Memory* mem,ALU* alu) {
 	// Register other modules
 	this->mem = mem;
+	this->alu = alu;
 	// Initialize variables
 	pc = 0;
 	running = false; // Doesn't run until run() is called
@@ -12,12 +13,17 @@ Interpreter::Interpreter(Memory* mem) {
 	accumulator = Word('+', '0', '0', '0', '0');
 }
 
-Interpreter* Interpreter::getInstance(Memory* mem) {
+Interpreter* Interpreter::getInstance(Memory* mem, ALU* alu) {
 	if (Interpreter::intInst == NULL) {
-		Interpreter::intInst = new Interpreter(mem);
+		Interpreter::intInst = new Interpreter(mem, alu);
 		return Interpreter::intInst;
 	}
 	return Interpreter::intInst;
+}
+
+Interpreter::~Interpreter()
+{
+	delete intInst;
 }
 
 void Interpreter::MemDump() {
@@ -143,7 +149,7 @@ void Interpreter::OpAdd(int memLoc) {
 	// (Leave the result in the accumulator)
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = ALU::Add(a, b);
+	int c = alu->Add(a, b);
 	try {
 		accumulator = Word(c);
 	}
@@ -158,7 +164,7 @@ void Interpreter::OpSub(int memLoc) {
 	// Subtract a word from a specific location in memory to the word in the accumulator
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = ALU::Subtract(b, a);
+	int c = alu->Subtract(b, a);
 	try {
 		accumulator = Word(c);
 	}
@@ -173,7 +179,7 @@ void Interpreter::OpDiv(int memLoc) {
 	// Divide a word from a specific location in memory to the word in the accumulator
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = ALU::Divide(b, a);
+	int c = alu->Divide(b, a);
 	try {
 		accumulator = Word(c);
 	}
@@ -188,7 +194,7 @@ void Interpreter::OpMul(int memLoc) {
 	// Multiply a word from a specific location in memory to the word in the accumulator
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
-	int c = ALU::Multiply(a, b);
+	int c = alu->Multiply(a, b);
 	try {
 		accumulator = Word(c);
 	}

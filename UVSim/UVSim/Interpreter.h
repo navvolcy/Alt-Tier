@@ -16,10 +16,11 @@ private:
 	Word ir;
 	Word accumulator;
 	Memory* mem;
+	ALU* alu;
 	bool running;
 
 	static Interpreter* intInst;
-	Interpreter(Memory* mem);
+	Interpreter(Memory* mem, ALU* alu);
 
 	// Operations
 	void OpRead(int memLoc);
@@ -42,7 +43,7 @@ public:
 	void Break();
 	void Continue();
 	*/
-	static Interpreter* getInstance(Memory* mem);
+	static Interpreter* getInstance(Memory* mem, ALU* alu);
 	
 	// Destructor
 	~Interpreter();

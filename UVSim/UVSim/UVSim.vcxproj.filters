@@ -45,6 +45,12 @@
     <ClInclude Include="CLI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IALU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InBitAdder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Memory.cpp">
