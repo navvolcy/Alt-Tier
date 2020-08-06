@@ -42,13 +42,13 @@ nBitAdder::bit nBitAdder::FullAdder(bit a, bit b)
 
 int nBitAdder::nBitAdd(int a, int b)
 {
-	const int size = sizeof(int) * 8;
+	const int size = sizeof(int)*8;
 	std::bitset<size> first(a);
 	std::bitset<size> second(b);
 	std::bitset<size> ans(0);
 	ans[0] = HalfAdder(first[0], second[0]);
 	int i = 0;
-	for (i = 0; i < size; ++i)
+	for (i = 1; i < size; ++i)
 	{
 		ans[i] = FullAdder(first[i], second[i]);
 	}

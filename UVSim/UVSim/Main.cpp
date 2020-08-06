@@ -18,6 +18,7 @@ int main(int argc, char* args[]) {
 	nBitAdder* nba = nBitAdder::getInstance();
 	ALU* alu = ALU::getInstance(nba);
 	CLI* cli = CLI::getInstance(mem);
+	std::cout << alu->Add(1, 1) << std::endl;
 	Interpreter* inter = Interpreter::getInstance(mem, alu);
 	// Start CLI
 	cli->launch();
