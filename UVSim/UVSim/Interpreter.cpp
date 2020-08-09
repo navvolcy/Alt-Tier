@@ -94,6 +94,12 @@ void Interpreter::run() {
 		case 33:
 			OpMul(stoi(operand));
 			break;
+		case 34:
+			OpRemainder(stoi(operand));
+			break;
+		case 35:
+			OpExponent(stoi(operand));
+			break;
 		case 40:
 			OpBranch(stoi(operand));
 			break;
@@ -195,6 +201,34 @@ void Interpreter::OpMul(int memLoc) {
 	int a = mem->read(memLoc).asInteger();
 	int b = accumulator.asInteger();
 	int c = alu->Multiply(a, b);
+	try {
+		accumulator = Word(c);
+	}
+	catch (std::runtime_error e) {
+		std::cout << std::endl << std::endl << e.what() << std::endl;
+		std::cout << std::endl << "Terminating ..." << std::endl;
+		exit(-1);
+	}
+}
+
+void Interpreter::OpRemainder(int memLoc) {
+	int a = mem->read(memLoc).asInteger();
+	int b = accumulator.asInteger();
+	int c = alu->Remainder(a, b);
+	try {
+		accumulator = Word(c);
+	}
+	catch (std::runtime_error e) {
+		std::cout << std::endl << std::endl << e.what() << std::endl;
+		std::cout << std::endl << "Terminating ..." << std::endl;
+		exit(-1);
+	}
+}
+
+void Interpreter::OpExponent(int memLoc) {
+	int a = mem->read(memLoc).asInteger();
+	int b = accumulator.asInteger();
+	int c = alu->Exponent(a, b);
 	try {
 		accumulator = Word(c);
 	}

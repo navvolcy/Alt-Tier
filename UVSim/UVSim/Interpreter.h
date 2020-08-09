@@ -31,6 +31,8 @@ private:
 	void OpSub(int memLoc);
 	void OpMul(int memLoc);
 	void OpDiv(int memLoc);
+	void OpRemainder(int memLoc);
+	void OpExponent(int memLoc);
 	void OpBranch(int memLoc);
 	void OpBranchNeg(int memLoc);
 	void OpBranchZero(int memLoc);
