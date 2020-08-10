@@ -1,4 +1,5 @@
 #include "Interpreter.h"
+using namespace std;
 
 Interpreter::Interpreter(Memory* mem, ALU* alu) {
 	// Register other modules
@@ -117,6 +118,7 @@ void Interpreter::OpWrite(int memLoc) {
 	// Write a word from a specific location in memory to the screen
 	std::cout << "Contents of " << memLoc << " is ";
 	std::cout << mem->read(memLoc).asInteger() << std::endl;
+	cout << endl;
 }
 
 void Interpreter::OpLoad(int memLoc) {
