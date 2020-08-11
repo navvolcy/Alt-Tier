@@ -41,7 +41,11 @@ int ALU::Add(int a, int b)
     }
     else
     {
-        return nba->nBitAdd(a, b);
+        int carry = a & b;
+        a = a ^ b;
+        carry <<= 1;
+        b = carry;
+        return aluInstance->Add(a, b);
     }
 }
 
